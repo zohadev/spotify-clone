@@ -1,7 +1,9 @@
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/sidebar/Sidebar";
 import { Figtree } from "next/font/google";
 import "./globals.css";
 
+// chakra config
+import { Providers } from "./providers";
 const font = Figtree({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Sidebar>{children}</Sidebar>
+        <Providers>
+          <Sidebar>{children}</Sidebar>
+        </Providers>
       </body>
     </html>
   );
